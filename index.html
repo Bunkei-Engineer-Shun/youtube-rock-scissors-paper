@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>じゃんけんアプリ</title>
+  </head>
+  <body>
+    <!-- title -->
+    <h1>じゃんけんゲーム</h1>
+    <!-- cards -->
+    <div class="cards">
+      <h3 id="minesage_for_player">好きなものを選ぼう！</h3>
+      <!-- rock scissors paper -->
+      <div class="card-btns" id="card_btns">
+        <div class="card-btn">
+          <button id="rock">
+            <img src="./images/rock.png" alt="rock" />
+          </button>
+        </div>
+        <div class="card-btn">
+          <button id="scissors">
+            <img src="./images/scissors.png" alt="scissors" />
+          </button>
+        </div>
+        <div class="card-btn">
+          <button id="paper">
+            <img src="./images/paper.png" alt="paper" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- field -->
+    <div class="field">
+      <!-- me -->
+      <div class="me" id="me_card">
+        <p>あなた</p>
+        <div id="mine"></div>
+      </div>
+      <!-- vs -->
+      <div id="vs">v/s</div>
+      <!-- opponent -->
+      <div class="opponent" id="opponent_card">
+        <p>対戦相手</p>
+        <div id="result"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

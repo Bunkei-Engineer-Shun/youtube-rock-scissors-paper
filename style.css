@@ -1,0 +1,163 @@
+:root {
+  /* 色 */
+  --white1: #fff;
+  --white2: #f8f8f8;
+  --dark1: #000;
+  --red1: #ea1010;
+  --pink1: #fb5779;
+  --blue1: #2565ac;
+  --blue2: #394485;
+  --blue3: #24315c;
+
+  /* フォントファミリー */
+  --fontFamily1: "Yu Gothic";
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: var(--fontFamily1);
+  color: var(--blue2);
+  background-color: var(--white2);
+}
+
+/* タイトル */
+h1 {
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+/* メッセージ */
+.cards > h3 {
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+/* card-btns */
+.cards > .card-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+/* card-btn */
+.cards > .card-btns > .card-btn > button {
+  height: 100px;
+  width: 100px;
+  background: var(--white1);
+  border: none;
+  border-radius: 10px;
+  /* 横の位置(+右/-左) 縦の位置(+下/-上) ぼかしの半径(値が大きいほどぼかしが強くなる) 影の範囲 影の色 */
+  box-shadow: 0 3px 7px -3px var(--dark1);
+}
+
+/* ボタン ホバー */
+button:hover {
+  cursor: pointer;
+  transform: scale(1.01, 1.01) translateY(-2px);
+}
+
+/* card-img */
+.cards > .card-btns > .card-btn > button > img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+}
+
+.me,
+.opponent {
+  border: 1px solid black;
+  height: 217px;
+  width: 217px;
+  display: flex;
+  flex-direction: column;
+  background: var(--white1);
+  border: none;
+  border-radius: 10px;
+  /* 横の位置(+右/-左) 縦の位置(+下/-上) ぼかしの半径(値が大きいほどぼかしが強くなる) 影の範囲 影の色 */
+  box-shadow: 0 3px 7px -3px var(--dark1);
+}
+
+.me > p,
+.opponent > p {
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  padding: 2px 0 0;
+}
+
+.me > #mine,
+.opponent > #result {
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 20px;
+}
+
+#vs {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 10px;
+  background: var(--pink1);
+  color: var(--white2);
+  font-weight: 900;
+  box-shadow: 0 5px 10px 0.1px var(--pink1);
+}
+
+/* あいこのアニメーション */
+.draw {
+  animation: shake 0.13s 3;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+/* 勝ったときに表示されるボタン */
+#restart {
+  background: var(--pink1);
+  color: var(--white2);
+  font-family: var(--fontFamily1);
+  font-weight: 600;
+  width: 170px;
+  height: 70px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0.1px var(--pink1);
+}
+
+/* 負けたときに表示されるボタン */
+#restart_lose {
+  background: var(--blue3);
+  color: var(--white2);
+  font-family: var(--fontFamily1);
+  font-weight: 600;
+  width: 170px;
+  height: 70px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0.1px var(--blue3);
+}

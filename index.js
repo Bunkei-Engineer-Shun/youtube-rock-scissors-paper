@@ -90,7 +90,7 @@ const win = () => {
   });
 
   // メッセージ変更
-  const msg = document.getElementById("minesage_for_player");
+  const msg = document.getElementById("message_for_player");
   msg.textContent = "おめでとう！";
   msg.style.color = "#ebd842";
 
@@ -106,7 +106,7 @@ const win = () => {
 
 // ドロー
 const draw = () => {
-  const msg = document.getElementById("minesage_for_player");
+  const msg = document.getElementById("message_for_player");
   msg.textContent = "あいこで...";
   msg.style.color = "#ff0a54";
 
@@ -137,7 +137,7 @@ const draw = () => {
 // 負け
 const lose = () => {
   // メッセージを変更する
-  const msg = document.getElementById("minesage_for_player");
+  const msg = document.getElementById("message_for_player");
   msg.textContent = "残念...もう一度挑戦してね！";
   msg.style.color = "#24315c";
 

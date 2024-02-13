@@ -75,7 +75,7 @@ button:hover {
   gap: 200px;
 }
 
-.me,
+.player,
 .opponent {
   border: 1px solid black;
   height: 217px;
@@ -89,7 +89,7 @@ button:hover {
   box-shadow: 0 3px 7px -3px var(--dark1);
 }
 
-.me > p,
+.player > p,
 .opponent > p {
   margin: 0;
   text-align: center;
@@ -97,7 +97,7 @@ button:hover {
   padding: 2px 0 0;
 }
 
-.me > #mine,
+.player > #player_result,
 .opponent > #result {
   height: 100%;
   width: 100%;

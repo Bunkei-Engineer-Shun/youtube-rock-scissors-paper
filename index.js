@@ -5,36 +5,36 @@ const paperBtn = document.getElementById("paper");
 
 // ボタン：グー
 rockBtn.addEventListener("click", () => {
-  // mineの要素を取得
-  const mine = document.getElementById("mine");
+  // playerの要素を取得
+  const player = document.getElementById("player_result");
   // 選んだ手札を差し込む
-  mine.style.backgroundImage = "url('./images/rock.png')";
+  player.style.backgroundImage = "url('./images/rock.png')";
   // 対戦相手の手札が決まる
-  getOpponentHand(mine.style.backgroundImage);
+  getOpponentHand(player.style.backgroundImage);
 });
 
 // ボタン：チョキ
 scissorsBtn.addEventListener("click", () => {
-  // mineの要素を取得
-  const mine = document.getElementById("mine");
+  // playerの要素を取得
+  const player = document.getElementById("player_result");
   // 選んだ手札を差し込む
-  mine.style.backgroundImage = "url('./images/scissors.png')";
+  player.style.backgroundImage = "url('./images/scissors.png')";
   // 対戦相手の手札が決まる
-  getOpponentHand(mine.style.backgroundImage);
+  getOpponentHand(player.style.backgroundImage);
 });
 
 // ボタン：パー
 paperBtn.addEventListener("click", () => {
-  // mineの要素を取得
-  const mine = document.getElementById("mine");
+  // playerの要素を取得
+  const player = document.getElementById("player_result");
   // 選んだ手札を差し込む
-  mine.style.backgroundImage = "url('./images/paper.png')";
+  player.style.backgroundImage = "url('./images/paper.png')";
   // 対戦相手の手札が決まる
-  getOpponentHand(mine.style.backgroundImage);
+  getOpponentHand(player.style.backgroundImage);
 });
 
 // 対戦相手の手札をルーレットで決める
-const getOpponentHand = (mine) => {
+const getOpponentHand = (player) => {
   // 1以上31未満(1~30)の数をランダムで取得（乱数）
   const rand = Math.floor(Math.random() * 30);
 
@@ -47,7 +47,7 @@ const getOpponentHand = (mine) => {
       // 選んだ手札を差し込む
       result.style.backgroundImage = "url('./images/rock.png')";
       // 判定
-      judge(mine, result.style.backgroundImage);
+      judge(player, result.style.backgroundImage);
       break;
 
     // チョキ
@@ -56,7 +56,7 @@ const getOpponentHand = (mine) => {
       // 選んだ手札を差し込む
       result.style.backgroundImage = "url('./images/scissors.png')";
       // 判定
-      judge(mine, result.style.backgroundImage);
+      judge(player, result.style.backgroundImage);
       break;
 
     // パー
@@ -65,7 +65,7 @@ const getOpponentHand = (mine) => {
       // 選んだ手札を差し込む
       result.style.backgroundImage = "url('./images/paper.png')";
       // 判定
-      judge(mine, result.style.backgroundImage);
+      judge(player, result.style.backgroundImage);
       break;
   }
 };
@@ -111,25 +111,25 @@ const draw = () => {
   msg.style.color = "#ff0a54";
 
   // クラス名を動的に追加して、カードを揺らす
-  const me = document.getElementById("me_card");
+  const player = document.getElementById("player_card");
   const opponent = document.getElementById("opponent_card");
 
   // クラス名
-  const meClassName = me.classList.value.split(" ");
+  const playerClassName = player.classList.value.split(" ");
 
   // クラス名drawが存在していたら削除して再度追加する
-  if (meClassName.indexOf("draw") === 1) {
+  if (playerClassName.indexOf("draw") === 1) {
     // 削除
-    me.classList.remove("draw");
+    player.classList.remove("draw");
     opponent.classList.remove("draw");
     // 要素をリフローさせるために何らかのプロパティにアクセスする
-    const reflow = me.offsetWidth;
+    const reflow = player.offsetWidth;
     // 追加
-    me.classList.add("draw");
+    player.classList.add("draw");
     opponent.classList.add("draw");
   } else {
     // 初回は追加のみ
-    me.classList.add("draw");
+    player.classList.add("draw");
     opponent.classList.add("draw");
   }
 };
@@ -152,23 +152,23 @@ const lose = () => {
 };
 
 // 判定
-const judge = (mine, opponent) => {
+const judge = (player, opponent) => {
   // 画像名を抽出する
-  mine = mine.split("/")[2];
+  player = player.split("/")[2];
   opponent = opponent.split("/")[2];
 
   // 削除した文字列
   const characterToRemove = '.png")';
   // 文字列メソッドを使って文字を削除する
-  mine = mine.split(characterToRemove).join("");
+  player = player.split(characterToRemove).join("");
   opponent = opponent.split(characterToRemove).join("");
 
   // あいこ
-  if (mine === opponent) {
+  if (player === opponent) {
     draw();
   }
   // グーを選んだとき
-  else if (mine === "rock") {
+  else if (player === "rock") {
     switch (true) {
       case opponent === "scissors":
         win();
@@ -179,7 +179,7 @@ const judge = (mine, opponent) => {
     }
   }
   // チョキを選んだとき
-  else if (mine === "scissors") {
+  else if (player === "scissors") {
     switch (true) {
       case opponent === "paper":
         win();
@@ -190,7 +190,7 @@ const judge = (mine, opponent) => {
     }
   }
   // パーを選んだとき
-  else if (mine === "paper") {
+  else if (player === "paper") {
     switch (true) {
       case opponent === "rock":
         win();
